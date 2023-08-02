@@ -23,12 +23,12 @@ const main = () => {
 
     if (messageType === "email") {
       notifyClient
-        .sendEmail(templateId, recipient, personalisation, reference)
+        .sendEmail(templateId, recipient, { personalisation, reference })
         .then(console.log(`Email sent with reference: ${reference}`))
         .catch((err) => core.setFailed(err));
     } else if (messageType === "sms") {
       notifyClient
-        .sendSms(templateId, recipient, personalisation, reference)
+        .sendSms(templateId, recipient, { personalisation, reference })
         .then(console.log(`SMS sent with reference: ${reference}`))
         .catch((err) => core.setFailed(err));
     } else {

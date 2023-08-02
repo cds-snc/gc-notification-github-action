@@ -52,12 +52,10 @@ describe("main", () => {
     mockEmail.mockResolvedValueOnce("reference");
     main();
     expect(core.setFailed).not.toHaveBeenCalled();
-    expect(mockEmail).toHaveBeenCalledWith(
-      "template-id",
-      "recipient",
-      {},
-      "reference"
-    );
+    expect(mockEmail).toHaveBeenCalledWith("template-id", "recipient", {
+      personalisation: {},
+      reference: "reference",
+    });
   });
 
   test("should send an sms if the message type is sms", () => {
@@ -73,12 +71,10 @@ describe("main", () => {
     mockSms.mockResolvedValueOnce("reference");
     main();
     expect(core.setFailed).not.toHaveBeenCalled();
-    expect(mockSms).toHaveBeenCalledWith(
-      "template-id",
-      "recipient",
-      {},
-      "reference"
-    );
+    expect(mockSms).toHaveBeenCalledWith("template-id", "recipient", {
+      personalisation: {},
+      reference: "reference",
+    });
   });
 
   test("should fail if the personalisation is not valid json", () => {
@@ -107,12 +103,10 @@ describe("main", () => {
     mockSms.mockResolvedValueOnce("reference");
     main();
     expect(core.setFailed).not.toHaveBeenCalled();
-    expect(mockSms).toHaveBeenCalledWith(
-      "template-id",
-      "recipient",
-      {},
-      expect.any(String)
-    );
+    expect(mockSms).toHaveBeenCalledWith("template-id", "recipient", {
+      personalisation: {},
+      reference: expect.any(String),
+    });
   });
 
   test("should set a reference if one is provided but is empty", () => {
@@ -128,12 +122,10 @@ describe("main", () => {
     mockSms.mockResolvedValueOnce("reference");
     main();
     expect(core.setFailed).not.toHaveBeenCalled();
-    expect(mockSms).toHaveBeenCalledWith(
-      "template-id",
-      "recipient",
-      {},
-      expect.any(String)
-    );
+    expect(mockSms).toHaveBeenCalledWith("template-id", "recipient", {
+      personalisation: {},
+      reference: expect.any(String),
+    });
   });
 
   test("should fail if the email fails to send", () => {

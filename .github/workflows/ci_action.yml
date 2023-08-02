@@ -18,14 +18,12 @@ jobs:
           personalisation: |
             {"subject": "Test subject", "body": "Test body"}
           recipient: cds-test-user@cds-snc.ca
-          template-id: ${{ secrets.TEMPLATE_ID }}
+          template-id: ${{ secrets.EMAIL_TEMPLATE_ID }}
 
       - name: Test action sms
         uses: ./
         with:
           api-key: ${{ secrets.NOTIFY_API_KEY }}
           message-type: sms
-          personalisation: |
-            {"subject": "Test subject", "body": "Test body"}
           recipient: 5555555555
-          template-id: ${{ secrets.TEMPLATE_ID }}
+          template-id: ${{ secrets.SMS_TEMPLATE_ID }}

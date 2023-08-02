@@ -6,6 +6,7 @@ An action to send a message from a GitHub CI using GC Notify (or any other Notif
 The action takes the following input parameters:
 
 | Parameter | Description | Required | Default |
+| --- | --- | --- | --- |
 | api-key | The API key to use to send the message | true | |
 | api-endpoint | The API endpoint to use to send the message | true | https://api.notification.canada.ca |
 | message-type | The type of message to send. Can be `email` or `sms` | true | email |

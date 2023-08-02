@@ -1,0 +1,37 @@
+name: GC Notification GitHub Action
+description: GitHub action to send messages through GC Notify
+author: "Canadian Digital Service"
+
+inputs:
+  api-key:
+    description: "The API key to use to send the message"
+    required: true
+  api-endpoint:
+    description: "The API endpoint to use to send the message"
+    required: true
+    default: "https://api.notification.canada.ca"
+  message-type:
+    description: "The type of message to send (email|sms)"
+    required: true
+    default: "email"
+  personalisation:
+    description: "The personalisation to use to send the message"
+    required: true
+    default: "{}"
+  recipient:
+    description: "The recipient to use to send the message"
+    required: true
+  reference:
+    description: "The reference to use to send the message, if none is provided, a random one will be generated"
+    required: false
+  template-id:
+    description: "The template ID to use to send the message"
+    required: true
+
+runs:
+  using: "node16"
+  main: "dist/index.js"
+
+branding:
+  icon: "sunrise"
+  color: "white"

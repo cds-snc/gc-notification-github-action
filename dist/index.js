@@ -29938,26 +29938,26 @@ const main = () => {
 
   try {
     personalisation = JSON.parse(personalisation);
+
+    if (!reference || reference.trim === "") {
+      reference = uuid();
+    }
+
+    if (messageType === "email") {
+      notifyClient
+        .sendEmail(templateId, recipient, personalisation, reference)
+        .then(console.log(`Email sent with reference: ${reference}`))
+        .catch((err) => core.setFailed(err));
+    } else if (messageType === "sms") {
+      notifyClient
+        .sendSms(templateId, recipient, personalisation, reference)
+        .then(console.log(`SMS sent with reference: ${reference}`))
+        .catch((err) => core.setFailed(err));
+    } else {
+      core.setFailed(`Message type: ${messageType} not supported`);
+    }
   } catch (err) {
     core.setFailed(err);
-  }
-
-  if (!reference || reference.trim === "") {
-    reference = uuid();
-  }
-
-  if (messageType === "email") {
-    notifyClient
-      .sendEmail(templateId, recipient, personalisation, reference)
-      .then(console.log(`Email sent with reference: ${reference}`))
-      .catch((err) => core.setFailed(err));
-  } else if (messageType === "sms") {
-    notifyClient
-      .sendSms(templateId, recipient, personalisation, reference)
-      .then(console.log(`SMS sent with reference: ${reference}`))
-      .catch((err) => core.setFailed(err));
-  } else {
-    core.setFailed(`Message type: ${messageType} not supported`);
   }
 };
 

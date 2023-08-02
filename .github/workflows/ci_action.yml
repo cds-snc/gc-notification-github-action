@@ -15,6 +15,6 @@ jobs:
         with:
           api-key: ${{ secrets.NOTIFY_API_KEY }}
           personalisation: |
-            '{"subject": "Test subject", "body": "Test body"}'
+            {"subject": "Test subject", "body": "Test body"}
           recipient: cds-test-user@cds-snc.ca
           template-id: ${{ secrets.TEMPLATE_ID }}

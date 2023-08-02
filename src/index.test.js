@@ -24,9 +24,15 @@ afterEach(() => {
 
 describe("main", () => {
   test("should fail if an unsupported message type is provided", () => {
-    when(core.getInput)
-      .calledWith("message-type")
-      .mockReturnValueOnce("unsupported");
+    setInputs(
+      "api-key",
+      "api-endpoint",
+      "unsupported",
+      "{}",
+      "recipient",
+      "template-id",
+      "reference"
+    );
     main();
     expect(core.setFailed).toHaveBeenCalledWith(
       "Message type: unsupported not supported"

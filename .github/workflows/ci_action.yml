@@ -25,7 +25,5 @@ jobs:
         with:
           api-key: ${{ secrets.NOTIFY_API_KEY }}
           message-type: sms
-          recipient: +15555555555
-          personalisation: |
-            {"subject": "Test subject", "body": "Test body"}
+          recipient: "+447900900123"
           template-id: ${{ secrets.SMS_TEMPLATE_ID }}

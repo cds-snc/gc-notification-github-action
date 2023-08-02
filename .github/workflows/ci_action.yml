@@ -10,11 +10,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
-      - name: Test action
+
+      - name: Test action email
         uses: ./
         with:
           api-key: ${{ secrets.NOTIFY_API_KEY }}
           personalisation: |
             {"subject": "Test subject", "body": "Test body"}
           recipient: cds-test-user@cds-snc.ca
+          template-id: ${{ secrets.TEMPLATE_ID }}
+
+      - name: Test action sms
+        uses: ./
+        with:
+          api-key: ${{ secrets.NOTIFY_API_KEY }}
+          message-type: sms
+          personalisation: |
+            {"subject": "Test subject", "body": "Test body"}
+          recipient: 5555555555
           template-id: ${{ secrets.TEMPLATE_ID }}

@@ -1,0 +1,20 @@
+name: CI Action
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ci-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+      - name: Test action
+        uses: ./
+        with:
+          api-key: ${{ secrets.NOTIFY_API_KEY }}
+          personalisation: |
+            '{"subject": "Test subject", "body": "Test body"}'
+          recipient: cds-test-user@cds-snc.ca
+          template-id: ${{ secrets.TEMPLATE_ID }}

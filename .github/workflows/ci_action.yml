@@ -9,6 +9,12 @@ jobs:
   ci-action:
     runs-on: ubuntu-latest
     steps:
+      - name: Install TCPDump
+        run: sudo apt-get install tcpdump
+
+      - name: Turn on TCPDump
+        run: sudo tcpdump -n -s 0 -w /tmp/tcpdump.pcap port 53 &
+
       - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
 
       - name: Test action email
@@ -27,3 +33,9 @@ jobs:
           message-type: sms
           recipient: "+447900900123"
           template-id: ${{ secrets.SMS_TEMPLATE_ID }}
+
+      - name: Turn off TCPDump
+        run: sudo killall tcpdump
+
+      - name: Cat TCPDump
+        run: cat /tmp/tcpdump.pcap

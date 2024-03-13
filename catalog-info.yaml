@@ -1,0 +1,16 @@
+# Metadata for the backstage catalog accessible at this link:  
+# https://backstage.cdssandbox.xyz/  
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: notification-github-action
+  title: GC Notification GitHub Action
+  description: An action to send a message from a GitHub CI using GC Notify (or any other Notify fork).
+  annotations:
+    github.com/project-slug: gc-notification-github-action
+spec:
+  type: service
+  owner: group:cds-snc/notify-dev
+  system: gc-notification
+  lifecycle: production

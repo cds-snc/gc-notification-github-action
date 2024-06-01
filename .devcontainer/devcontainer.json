@@ -6,7 +6,7 @@
 		"github.copilot"
 	],
 	"features": {
-		"ghcr.io/lukewiwa/features/shellcheck:0": {
+		"ghcr.io/lukewiwa/features/shellcheck:0@sha256:9d61a060404fb127ae0c3aea3adbf85869ba575ab8e612f168c82c48ef0c502e": {
 			"version": "stable"
 		}
 	}

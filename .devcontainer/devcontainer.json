@@ -1,5 +1,5 @@
 {
-	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"image": "mcr.microsoft.com/devcontainers/universal:2@sha256:a370bffa6556ae4727f6a46d6d8690478398d1238f97021e9618eaf1738f7434",
 	"extensions": [
 		"redhat.vscode-yaml",
 		"timonwong.shellcheck",

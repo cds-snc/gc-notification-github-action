@@ -8,7 +8,7 @@ metadata:
   title: GC Notification GitHub Action
   description: An action to send a message from a GitHub CI using GC Notify (or any other Notify fork).
   annotations:
-    github.com/project-slug: gc-notification-github-action
+    github.com/project-slug: cds-snc/gc-notification-github-action
 spec:
   type: service
   owner: group:cds-snc/notify-dev
